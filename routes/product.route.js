@@ -44,7 +44,6 @@ route.post("/", async (req, res) => {
   }
 });
 
-
 route.get("/:id", async (req, res) => {
   try {
     let product = await Product.findByPk(req.params.id);
