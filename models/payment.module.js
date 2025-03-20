@@ -23,7 +23,7 @@ const Payment = db.define(
 
 const PaymentValidation = joi.object({
     order_id: joi.number().required(),
-    status: joi.number
+    status: joi.boolean()
 })
 
 module.exports = {Payment, PaymentValidation}

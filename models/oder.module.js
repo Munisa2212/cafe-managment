@@ -23,7 +23,7 @@ const Order = db.define(
 
 const OrderValidation = joi.object({
     user_id: joi.number().required(),
-    price: joi.number.required()
+    price: joi.number()
 })
 
 module.exports = {Order, OrderValidation}
