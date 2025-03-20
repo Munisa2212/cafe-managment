@@ -1,4 +1,4 @@
-const {db} = require('../config/db')
+const { db } = require('../config/db')
 const { DataTypes } = require('sequelize')
 const joi = require('joi')
 
@@ -25,16 +25,17 @@ const User = db.define('User', {
     allowNull: false,
   },
   money: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     defaultValue: 0,
   },
 })
 
-const UserValadation = joi.object({
+const UserValidation = joi.object({
   name: joi.string().min(3).max(50).required(),
   email: joi.string().email().required(),
   password: joi.string().min(8).required(),
-  role: joi.string().valid('costumer', 'user', 'staff'),
+  role: joi.string(),
+  money: joi.number().min(0),
 })
 
-module.exports = { User, UserValadation }
+module.exports = { User, UserValidation }
